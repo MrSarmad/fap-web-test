@@ -1,0 +1,118 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="wrapper">
+    <div id="sidebar" class="sidenav active">
+        <a routerlink="/master"><i class="fas fa-home"></i>Home</a>
+        <a routerlink="/searches/quicknamesearch"><i class="fab fa-searchengin"></i>Quick name search</a>
+        <a routerlink="/searches/detailsearch"><i class="fas fa-stethoscope"></i>Detail search</a>
+        <a routerlink="/myfavorites"><i class="fas fa-star"></i>My favorites</a>
+    </div>
+    <div class="container-fluid" id="content">
+        <!--Header-->
+        <div class="row fap-header pt-3">
+            <div class="col col-1 fap-breadcrumb">
+                <a href="#" class="mt-1 d-inline-block" id="sidebarCollapse"><img src="../assets/images/nav.png" /></a>
+            </div>
+            <div class="col col-4"><img src="../assets/images/envolve-logo.png"></div>
+            <div class="col">
+                <ul class="pt-2 m0 top-r-nav d-inline-block float-right">
+                    <li>
+                        <mat-form-field>
+                            <mat-label>English</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let lang of languages" [value]="lang.value">
+                                    {{ lang.viewValue }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </li>
+                    <li><a href="" class="help-btn">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--Header end-->
+        <!--Map-->
+        <div class="row map-section">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193112.8097896042!2d-74.57730097782071!3d40.8633662172186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c30824287028c3%3A0xf6a59890b16324f0!2sParsippany-Troy+Hills%2C+NJ%2C+USA!5e0!3m2!1sen!2sin!4v1563865910906!5m2!1sen!2sin"
+                width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <!--Map End-->
+        <!--location and product-->
+        <div class="row pt-3 border-bottom pb-2">
+            <div
+                class="col-12 col-md-5 col-xl-4 col-sm-5 text-center text-sm-right text-md-right text-xl-right product-switch">
+                <span>Products:</span><a href="#">Envolve Discount Plan</a></div>
+            <div class="col-12 col-md-2 col-xl-4 col-sm-2"></div>
+            <div
+                class="col-12 col-md-5 col-xl-4 col-sm-5 text-center text-sm-left text-md-left text-xl-left location-switch">
+                <span>Location:</span><a href="#">Parsippany NJ</a></div>
+        </div>
+        <router-outlet></router-outlet>
+        <!-- Modal find provider-->
+        <div class="modal fade" id="FindaProvider" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-location-search" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-body">
+                        <h6 class="fap-dialog-title text-center">Welcome to find a provider</h6>
+                        <p class="dialog-sub-head text-center">Use your current location or enter one below</p>
+
+                        <div class="row">
+                            <div
+                                class="col-12 col-lg-6 col-md-6 col-sm-6 border-right pr-0 pl-0 pr-lg-5 text-center text-lg-center text-md-center ">
+                                <button type="button" value="" class="fap-btn mt-0 mt-lg-5">
+                                    <i class="material-icons float-left">
+                                        gps_fixed
+                                    </i>Use my current location
+                                </button>
+                                <span class="or">OR</span>
+                            </div>
+                            <div
+                                class="col-12 col-lg-6 col-md-6 col-sm-6 location-search-area pl-0 pl-lg-5 pl-md-5 pl-sm-5 text-center text-lg-left">
+                                <label>Address, Zip code or County + State*</label>
+                                <input type="text" class="form-control location-input">
+                                <label class="light-color">*When searching by county, please<br /> include state'
+                                </label>
+                                <button type="button" value="" class="fap-btn" data-toggle="modal"
+                                    data-target="#exampleModalCenter" data-dismiss="modal" aria-label="Close">Set
+                                    Location</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Choose a product -->
+        <div class="modal choose fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="back-btn" data-toggle="modal" data-target="#FindaProvider"
+                        data-dismiss="modal"><i class="fas fa-arrow-left"></i></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-body">
+                        <h6 class="fap-dialog-title text-center">Choose a product</h6>
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="produc-list">
+                                    <li><a href="#">Ambetter from NH Healthy Families <i
+                                                class="fas fa-chevron-right"></i></a></li>
+                                    <li><a href="#">New Hampshire Health Protection Program <i
+                                                class="fas fa-chevron-right"></i></a></li>
+                                    <li><a href="#">NH Health Families (Medicaid) <i
+                                                class="fas fa-chevron-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
